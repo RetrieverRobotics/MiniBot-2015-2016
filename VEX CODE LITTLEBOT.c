@@ -102,24 +102,6 @@ task usercontrol()
 			motor[IntakeR] = 0;
 		}
 
-		//Pneumatic controls
-		// Release "fill" valve
-		if (vexRT[Btn5U] == 1)
-		{
-			SensorValue[SolenoidFill] = 1;
-		}
-		// Release "fill" valve
-		else if (vexRT[Btn5D] == 1)
-		{
-			SensorValue[SolenoidRelease] = 1;
-		}
-		// Otherwise close both
-		else
-		{
-			SensorValue[SolenoidFill] = 1;
-			SensorValue[SolenoidRelease] = 1;
-		}
-
 		// Ramp motors?
 		// Run both in one direction
 		if (vexRT[Btn7U] == 1)
