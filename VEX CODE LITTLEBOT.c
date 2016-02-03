@@ -18,6 +18,32 @@
 
 #include "Vex_Competition_Includes.c"   //Main competition background code...do not modify!
 
+////////////////////////// SOFTWARE DEFINES ////////////////////////////////////
+
+#define DRIVE_DZ 30 // The drive stick deadzone for both sticks
+
+////////////////////////////////////////////////////////////////////////////////
+/*
+ * Deadzones a joystick input.
+ *
+ * @param stickValue The raw joystick value.
+ * @param dz The lower threshold for input to go through.
+ */
+int applyDeadzone(int stickValue, int dz)
+{
+	int abValue = abs(stickValue);
+
+	// If the absolute stick value is below the thresh return 0
+	if (abValue < dz)
+	{
+		return 0;
+	}
+	else
+	{
+		return stickValue;
+	}
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////
 //
 //                          Pre-Autonomous Functions
@@ -74,10 +100,10 @@ task usercontrol()
 	  // your program should update motor + servo values based on feedback from the joysticks.
 
 		//Wheels
-		motor[DriveR1] = vexRT(Ch2);
-		motor[DriveL1] = vexRT(Ch3);
-		motor[DriveR2] = vexRT(Ch2);
-		motor[DriveL2] = vexRT(Ch3);
+		motor[DriveR1] = applyDeadzone(vexRT(Ch2), DRIVE_DZ);
+		motor[DriveL1] = applyDeadzone(vexRT(Ch3), DRIVE_DZ);
+		motor[DriveR2] = applyDeadzone(vexRT(Ch2), DRIVE_DZ);
+		motor[DriveL2] = applyDeadzone(vexRT(Ch3), DRIVE_DZ);
 
 		//Intake
 		// Spin the intake motors forward
