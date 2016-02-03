@@ -128,13 +128,13 @@ task usercontrol()
 
 		// Ramp motors?
 		// Run both in one direction
-		if (vexRT[Btn7U] == 1)
+		if (vexRT[Btn5D] == 1)
 		{
 			motor[RampR] = 63;
 			motor[RampL] = 63;
 		}
 		// Run both in the other direction
-		else if (vexRT[Btn7D] == 1)
+		else if (vexRT[Btn5U] == 1)
 		{
 			motor[RampR] = -63;
 			motor[RampL] = -63;
