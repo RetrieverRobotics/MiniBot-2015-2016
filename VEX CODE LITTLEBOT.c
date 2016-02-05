@@ -130,16 +130,15 @@ task usercontrol()
 		// Run both in one direction
 		if (vexRT[Btn5D] == 1)
 		{
-			motor[RampR] = 63;
-			motor[RampL] = 63;
+			motor[RampR] = 47;
+			motor[RampL] = 47;
 		}
 		// Run both in the other direction
 		else if (vexRT[Btn5U] == 1)
 		{
-			motor[RampR] = -63;
-			motor[RampL] = -63;
-		}
-		// Stop motors
+			motor[RampR] = -47;
+			motor[RampL] = -47;
+		} // Stop motors
 		else
 		{
 			motor[RampR] = 0;
